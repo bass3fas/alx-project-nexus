@@ -1,44 +1,154 @@
-# Project Nexus Prodev FE
+# 🍽️ Paratha and More - Restaurant Ordering App
 
-## Introduction
-Project Nexus is the capstone project for the **ProDev Frontend Engineering** program. It is designed to showcase your ability to apply frontend development skills to a real-world project. Through this project, you will demonstrate your knowledge, creativity, and technical expertise by building a complete and functional application.
+## 📌 Project Overview
 
-## Objectives
-The primary objectives of Project Nexus are:
-- Apply learned frontend technologies to a real-world project.
-- Build a well-structured and responsive application.
-- Demonstrate problem-solving skills and critical thinking in UI/UX design.
-- Improve presentation and communication skills.
+**Paratha and More** is an intuitive restaurant ordering app where customers can:
+- Drag and drop meals into their cart.
+- Provide their delivery location via **Google Maps API**.
+- Pay via a **payment link** or upload an **invoice** as an alternative.
+- Track their order progress in real-time.
 
-## Key Features
-This project will include:
-- **Comprehensive Documentation**: Covers frontend engineering concepts such as Next.js, TailwindCSS, TypeScript, GraphQL, API Integration, and System Design.
-- **Challenges & Solutions**: Real-world challenges faced and implemented solutions.
-- **Best Practices & Takeaways**: Highlights industry best practices and personal insights.
-- **Collaboration Hub**: Encourages teamwork between frontend and backend learners.
+**Admin features include:**
+- Viewing all incoming orders.
+- Managing order statuses.
+- Receiving **email notifications** for new orders.
 
-## Technologies Used
-You can choose from the following technologies to build your project:
-- **Mobile Applications**: Using React Native (Expo Framework) for cross-platform mobile apps.
-- **Progressive Web Apps (PWA)**: Building installable, offline-capable web apps using modern web technologies.
-- **Web Applications**: Developing dynamic, responsive, and interactive websites using Next.js.
+---
 
-## Resources
-To help you succeed in Project Nexus, explore the following resources:
-- **Frontend Development Learning Resources**:
-  - [MDN Web Docs](https://developer.mozilla.org/) – Comprehensive documentation on HTML, CSS, and JavaScript.
-  - [React Documentation](https://reactjs.org/) – Official React documentation for building interactive UIs.
-  - [Expo Documentation](https://docs.expo.dev/) – Official Expo documentation for React Native.
-  - [PWA Guide](https://web.dev/progressive-web-apps/) – Learn about Progressive Web Apps.
-  - [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) – A tool for improving web app performance.
-  - [Figma](https://figma.com/) – For designing and prototyping UI/UX.
-- **Project Management & Productivity Tools**:
-  - [GitHub](https://github.com/) – Version control and collaboration.
-  - [Notion](https://www.notion.so/) / [Trello](https://trello.com/) – Organizing tasks and milestones.
-  - [Google Meet](https://meet.google.com/) / [Zoom](https://zoom.us/) – For virtual team discussions.
+## 🚀 Tech Stack
 
+**Frontend Framework:** Next.js 14 (App Router)  
+**UI Library:** Tailwind CSS  
+**Drag & Drop:** React DnD  
+**Location Services:** Google Maps API  
+**Payments:** Stripe (or alternative manual invoice upload)  
+**File Uploads:** Cloudinary  
+**Email Notifications:** Nodemailer  
+**State Management:** Zustand / Redux Toolkit  
+**Backend (if needed):** Node.js with Express.js  
+**Database:** MongoDB with Mongoose (if backend required)  
+**Authentication:** NextAuth.js (Google & Email sign-in)  
+**Deployment:** Vercel (Frontend) & Railway/Render (Backend)  
 
+---
 
+## 📖 Features Breakdown
 
+### ✅ Client Features
+1. **Browse Menu:** View food items with prices, images, and descriptions.
+2. **Drag & Drop:** Easily add or remove items from the cart.
+3. **Location Sharing:** Get the customer’s location using **Google Maps API**.
+4. **Checkout Process:**
+   - Option 1: Pay via **Stripe**.
+   - Option 2: Upload an **invoice** instead.
+5. **Order Tracking:** View the status of past & ongoing orders.
+6. **Authentication:** Login via **NextAuth.js** (Google/email).
 
+### ✅ Admin Features
+1. **View Orders:** Dashboard listing all customer orders.
+2. **Update Order Status:** Mark orders as **Pending, Preparing, Out for Delivery, Delivered**.
+3. **Email Alerts:** Receive new order notifications via **Nodemailer**.
+
+---
+
+## 🏗️ Project Setup & Steps
+
+### 1️⃣ Initialize Next.js Project
+```bash
+npx create-next-app@latest paratha-and-more
+cd paratha-and-more
+npm install
+```
+
+### 2️⃣ Install Required Dependencies
+```bash
+npm install tailwindcss react-dnd react-dnd-html5-backend google-maps-react 
+npm install next-auth stripe cloudinary multer nodemailer zustand
+```
+
+### 3️⃣ Setup Tailwind CSS
+```bash
+npx tailwindcss init -p
+```
+Update `tailwind.config.js`:
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  theme: { extend: {} },
+  plugins: [],
+};
+```
+Import Tailwind into `globals.css`:
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+### 4️⃣ Setup Drag & Drop for Orders
+- Use **React DnD** to implement a drag-and-drop cart.
+
+### 5️⃣ Integrate Google Maps API for Location
+- Get an **API Key** from Google Cloud.
+- Use **Google Maps API** to retrieve user location.
+
+### 6️⃣ Setup Payment Gateway (Stripe)
+- Configure **Stripe** payment processing for checkout.
+
+### 7️⃣ Alternative: Invoice Upload (Cloudinary)
+- Customers upload an invoice instead of using Stripe.
+- Use **Cloudinary** to store invoice images.
+
+### 8️⃣ Email Notifications with Nodemailer
+- Send new order notifications to the admin.
+
+### 9️⃣ Order Status Management
+- Admin can update the **status** of orders.
+
+### 🔟 Authentication with NextAuth.js
+- Google & Email sign-in for customers and admins.
+
+### 1️⃣1️⃣ Deployment
+- **Frontend:** Deploy to **Vercel**.
+- **Backend (if needed):** Deploy to **Railway/Render**.
+
+---
+
+## 🎯 Milestones & Timeline
+
+| Milestone | Task | Deadline |
+|-----------|------|----------|
+| 1 | Project Setup & UI Design (Figma) | Feb 25-26 |
+| 2 | Drag & Drop, Cart Functionality | Feb 27-28 |
+| 3 | Google Maps Integration | Feb 29 |
+| 4 | Payment & Invoice Upload | Mar 1-2 |
+| 5 | Email Notifications & Admin Panel | Mar 3-4 |
+| 6 | Final Testing & Deployment | Mar 5-6 |
+
+---
+
+## 🎓 Evaluation Criteria (80%+ Score)
+
+✅ **Functionality & Features:** All features implemented smoothly.  
+✅ **Code Quality:** Clean, modular, and follows best practices.  
+✅ **UI/UX & Responsiveness:** Well-designed and mobile-friendly.  
+✅ **Performance Optimization:** Lazy loading, caching, minification.  
+✅ **Presentation & Documentation:** Clear README, presentation slides, and video demo.  
+
+---
+
+## 📂 Project Submission Checklist
+- ✅ **GitHub Repository** with source code.
+- ✅ **README.md** with clear setup instructions.
+- ✅ **Presentation Slides** explaining features & tech stack.
+- ✅ **Video Demo** showcasing the project in action.
+
+---
+
+## 📬 Contact & Collaboration
+- **Discord Channel:** `#ProDevProjectNexus`
+- **Mentors:** Cole, Faith, Amanuel (`@Cohort PD-FE-Pilot Mentor`)
+
+🚀 **Let's build something amazing!** 💻✨
 
